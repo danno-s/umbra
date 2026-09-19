@@ -55,6 +55,13 @@ internal sealed class JobInfoRepository : IDisposable
                 continue;
             }
 
+            // Same hack for Beastmaster.
+            if (jobInfo is { Id: 43, Level: 50 })
+            {
+                jobInfo.XpPercent = 0;
+                jobInfo.IsMaxLevel = true;
+            }
+
             var grow = _dataManager.GetExcelSheet<ParamGrow>().FindRow((uint)jobInfo.Level);
 
             // Hardcoded max level.
