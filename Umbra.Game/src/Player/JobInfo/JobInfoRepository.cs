@@ -64,5 +64,7 @@ internal sealed class JobInfoRepository : IDisposable
             jobInfo.XpPercent  = (byte)(currentXp / (float)grow.ExpToNext * 100);
             jobInfo.IsMaxLevel = false;
         }
+
+        ps->CurrentClassJobId = currentRestore;
     }
 }
